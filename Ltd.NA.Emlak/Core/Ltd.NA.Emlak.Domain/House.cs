@@ -12,27 +12,45 @@ namespace Ltd.NA.Emlak.Domain
         private string name;
         private string description;
 
-
+        /// <summary>
+        /// The Unique Id of the House
+        /// </summary>
         public Guid Id
         {
             get { return this.id; }
         }
 
+        /// <summary>
+        /// The Name that identify the House
+        /// </summary>
         public string Name
         {
             get { return name; }
         }
 
+        /// <summary>
+        /// The Description of the House
+        /// </summary>
         public string Description
         {
             get { return description; }
         }
 
+        /// <summary>
+        /// Identify if the House is Valid
+        /// </summary>
         public bool IsValid
         {
             get { return this.id != Guid.Empty; }
         }
 
+        /// <summary>
+        /// Create a new House object
+        /// </summary>
+        /// <param name="id">The unique id</param>
+        /// <param name="name">The name of the house</param>
+        /// <param name="description">The description of the house</param>
+        /// <returns></returns>
         public static House Create(Guid id, string name, string description)
         {
             return new House

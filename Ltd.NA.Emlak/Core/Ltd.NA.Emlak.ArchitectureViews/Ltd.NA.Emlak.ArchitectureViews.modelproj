@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{613f19e3-f470-4dd0-bf8b-26f158746075}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>Ltd.NA.Emlak.ArchitectureViews</Name>
+    <RootNamespace>Ltd.NA.Emlak.ArchitectureViews</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ItemGroup>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="ModelDefinition\Ltd.NA.Emlak.ArchitectureViews.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="MainViewPoint.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="MainViewPoint.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>MainViewPoint.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="MainViewPoint.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>MainViewPoint.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ltd.NA.Emlak.Data\Ltd.NA.Emlak.Data.csproj">
+      <Name>Ltd.NA.Emlak.Data</Name>
+      <Project>{c6a3f331-76db-4308-9a41-12ad34d46a44}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Ltd.NA.Emlak.Domain\Ltd.NA.Emlak.Domain.csproj">
+      <Name>Ltd.NA.Emlak.Domain</Name>
+      <Project>{b47138c5-fe97-47d1-b328-1fb00f993322}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Ltd.NA.Emlak.Queries\Ltd.NA.Emlak.Queries.csproj">
+      <Name>Ltd.NA.Emlak.Queries</Name>
+      <Project>{c42bdfec-94a3-4706-a216-3b407bb27aec}</Project>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

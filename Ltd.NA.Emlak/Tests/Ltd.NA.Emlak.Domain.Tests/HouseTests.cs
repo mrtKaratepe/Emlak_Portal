@@ -15,5 +15,13 @@ namespace Ltd.NA.Emlak.Domain.Tests
             Assert.IsTrue(house.Name == "My Name");
             Assert.IsTrue(house.Description == "My Description");
         }
+
+        [TestMethod]
+        public void House_Without_Id_IsNotValid()
+        {
+            House house = House.Create(Guid.Empty, "My Name", "My Description");
+
+            Assert.IsFalse(house.IsValid);
+        }
     }
 }

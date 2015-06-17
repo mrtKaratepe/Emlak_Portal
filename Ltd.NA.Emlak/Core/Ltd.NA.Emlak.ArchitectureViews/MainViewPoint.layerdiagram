@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="03d06bb2-444c-4fa1-9de6-4501d54d421e" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="4b787437-4ea4-4659-8112-65609470a443" name="Ltd.NA.Emlak.Domain">
+      <references>
+        <reference Id="4555fca5-d999-4d61-b4f2-57005e1b054b" name="Ltd.NA.Emlak.Domain">
+          <ArtifactNode Label="Ltd.NA.Emlak.Domain" Category="CodeSchema_Project" Id="(Assembly=&quot;$(PersonalUri)/GitHub/NetArchitectures.Emlak/Ltd.NA.Emlak/Core/Ltd.NA.Emlak.Domain/Ltd.NA.Emlak.Domain.csproj&quot;)" />
+          <ExpandedNode Id="(Assembly=Ltd.NA.Emlak.Domain)" Label="Ltd.NA.Emlak.Domain.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="de33b47a-bd82-4829-9c65-dc9b20b6adba" name="Ltd.NA.Emlak.Data">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="fdc0c092-b014-4ba8-aca2-b19d017d7f17" direction="Forward">
+          <layerMoniker Id="4b787437-4ea4-4659-8112-65609470a443" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="f411f0d1-5c9e-45a5-97fd-232a0c76e85b" name="Ltd.NA.Emlak.Data">
+          <ArtifactNode Label="Ltd.NA.Emlak.Data" Category="CodeSchema_Project" Id="(Assembly=&quot;$(PersonalUri)/GitHub/NetArchitectures.Emlak/Ltd.NA.Emlak/Core/Ltd.NA.Emlak.Data/Ltd.NA.Emlak.Data.csproj&quot;)" />
+          <ExpandedNode Id="(Assembly=Ltd.NA.Emlak.Data)" Label="Ltd.NA.Emlak.Data.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="7ed9ef95-72bd-4aab-8bcc-388d3f9f8eec" name="Ltd.NA.Emlak.Queries">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="3a68882b-94b6-440f-8af5-8a384198bc81" direction="Forward">
+          <layerMoniker Id="de33b47a-bd82-4829-9c65-dc9b20b6adba" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="0ed63c1e-b857-4241-826f-96e84824360e" direction="Forward">
+          <layerMoniker Id="4b787437-4ea4-4659-8112-65609470a443" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="9e3162be-6cc1-4c6f-9826-33b6b59ff362" name="Ltd.NA.Emlak.Queries">
+          <ArtifactNode Label="Ltd.NA.Emlak.Queries" Category="CodeSchema_Project" Id="(Assembly=&quot;$(PersonalUri)/GitHub/NetArchitectures.Emlak/Ltd.NA.Emlak/Core/Ltd.NA.Emlak.Queries/Ltd.NA.Emlak.Queries.csproj&quot;)" />
+          <ExpandedNode Id="(Assembly=Ltd.NA.Emlak.Queries)" Label="Ltd.NA.Emlak.Queries.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

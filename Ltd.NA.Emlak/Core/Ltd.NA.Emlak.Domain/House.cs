@@ -63,5 +63,13 @@ namespace Ltd.NA.Emlak.Domain
                 description = description
             };
         }
+
+        /// <summary>
+        /// Protected constructor, developer cannot use it but Entity Framework can
+        /// </summary>
+        protected House()
+        {
+            
+        }
     }
 }

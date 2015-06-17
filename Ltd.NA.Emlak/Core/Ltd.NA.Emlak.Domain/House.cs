@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ltd.NA.Emlak.Domain
 {
+    /// <summary>
+    /// Represent an House Entity
+    /// </summary>
     public class House
     {
         private Guid id;

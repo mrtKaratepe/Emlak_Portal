@@ -50,5 +50,28 @@ namespace Ltd.NA.Emlak.Domain.Tests
             Assert.AreNotEqual(originalCategory, mockHouse.Category);
 
         }
+
+        [TestMethod]
+        public void Add_Address_To_House()
+        {
+            Assert.IsNull(mockHouse.Address);
+            mockHouse.AddAddress("Address Line 1", "Izmir", "Turkey", "100/3", "35140");
+            Assert.IsNotNull(mockHouse.Address);
+
+        }
+
+        [TestMethod]
+        public void Change_Adress_For_House()
+        {
+            mockHouse.AddAddress("Address Line 1", "Izmir", "Turkey", "100/3", "35140");
+            Address originalAddress = mockHouse.Address;
+
+            Address expectedAddress = new Address("Address Line 2", "Edremit", "Turkey", "100/3", "35140");
+            mockHouse.ChangeAddress(expectedAddress);
+
+            Assert.AreNotEqual(originalAddress,mockHouse.Address);
+
+        }
+
     }
 }

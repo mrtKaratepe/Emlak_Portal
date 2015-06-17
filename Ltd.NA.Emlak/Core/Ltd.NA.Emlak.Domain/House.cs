@@ -14,6 +14,9 @@ namespace Ltd.NA.Emlak.Domain
         private Guid id;
         private string name;
         private string description;
+        private string code { get; set; }
+        private Boolean rent { get; set; }
+        
 
         /// <summary>
         /// The Unique Id of the House

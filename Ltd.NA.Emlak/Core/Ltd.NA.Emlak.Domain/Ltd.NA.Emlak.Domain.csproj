@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs" />
+    <Compile Include="Category.cs" />
     <Compile Include="House.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

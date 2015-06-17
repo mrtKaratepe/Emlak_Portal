@@ -7,8 +7,32 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AAACABAAAAQgAAAAIAgAICQAIAIEAEACAAAIAAIACgA=</HashCode>
       <FileName>House.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Category" />
+      <Property Name="Address" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Ltd.NA.Emlak.Domain.Category">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAASAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAEgA=</HashCode>
+      <FileName>Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ltd.NA.Emlak.Domain.Address">
+    <Position X="2.5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ACAAAQAAAAAAQAAIAEAECAAABAIAAAADAAAAAgAAAAA=</HashCode>
+      <FileName>Address.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

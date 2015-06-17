@@ -8,11 +8,14 @@ namespace Ltd.NA.Emlak.Domain
 {
     public class Category
     {
-        /// <summary>
-        /// 
-        /// </summary>
+        private Guid id;
         private string entry;
         private string description;
+
+        public Guid Id
+        {
+            get { return this.id; }
+        }
 
         public string Entry
         {
@@ -24,16 +27,12 @@ namespace Ltd.NA.Emlak.Domain
             get { return this.description; }
         }
 
-        public static Category Create(string entry, string description)
+        internal Category(string entry, string description)
         {
-            return new Category 
-            {
-                entry=entry,
-                description=description
-
-            };
+            this.id = Guid.NewGuid();
+            this.entry = entry;
+            this.description = description;
         }
-
         
     }
 }

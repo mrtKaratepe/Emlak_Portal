@@ -3,12 +3,6 @@ namespace Ltd.NA.Emlak.Domain
 {
     public class Address
     {
-        private readonly Guid id;
-        private readonly string address1;
-        private readonly string city;
-        private readonly string country;
-        private readonly string number;
-        private readonly string zipCode;
 
         internal Address(string address1,
             string city,
@@ -16,46 +10,57 @@ namespace Ltd.NA.Emlak.Domain
             string number,
             string zipCode)
         {
-            this.id = Guid.NewGuid();
-            this.address1 = address1;
-            this.city = city;
-            this.country = country;
-            this.number = number;
-            this.zipCode = zipCode;
+            this.Id = Guid.NewGuid();
+            this.Address1 = address1;
+            this.City = city;
+            this.Country = country;
+            this.Number = number;
+            this.ZipCode = zipCode;
+        }
+
+        protected Address()
+        {
+            
         }
 
         public Guid Id
         {
-            get { return this.id; }
+            get;
+            private set;
         }
 
         public string Address1
         {
-            get { return address1; }
+            get;
+            private set;
         }
 
         public string Address2 { get; set; }
 
         public string Number
         {
-            get { return number; }
+            get;
+            private set;
         }
 
         public string City
         {
-            get { return city; }
+            get;
+            private set;
         }
 
         public string Province { get; set; }
 
         public string ZipCode
         {
-            get { return zipCode; }
+            get;
+            private set;
         }
 
         public string Country
         {
-            get { return country; }
+            get;
+            private set;
         }
     }
 }

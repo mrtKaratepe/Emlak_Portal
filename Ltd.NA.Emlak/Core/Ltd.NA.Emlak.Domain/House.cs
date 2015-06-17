@@ -11,28 +11,20 @@ namespace Ltd.NA.Emlak.Domain
     /// </summary>
     public class House
     {
-        private Guid id;
-        private string name;
-        private string description;
-        private string code;
-        private Boolean rent;
-        private Category category;
-        private Address address;
-        
         /// <summary>
         /// The Unique Id of the House
         /// </summary>
         public Guid Id
         {
-            get { return this.id; }
-        }
+            get; private set; }
 
         /// <summary>
         /// The Name that identify the House
         /// </summary>
         public string Name
         {
-            get { return name; }
+            get;
+            private set;
         }
 
         /// <summary>
@@ -40,7 +32,8 @@ namespace Ltd.NA.Emlak.Domain
         /// </summary>
         public string Description
         {
-            get { return description; }
+            get;
+            private set;
         }
 
         /// <summary>
@@ -48,7 +41,7 @@ namespace Ltd.NA.Emlak.Domain
         /// </summary>
         public bool IsValid
         {
-            get { return this.id != Guid.Empty; }
+            get { return this.Id != Guid.Empty; }
         }
 
         /// <summary>
@@ -56,12 +49,14 @@ namespace Ltd.NA.Emlak.Domain
         /// </summary>
         public Category Category
         {
-            get { return this.category; }
+            get;
+            private set;
         }
 
         public Address Address
         {
-            get { return this.address; }
+            get;
+            private set;
         }
 
         /// <summary>
@@ -75,10 +70,22 @@ namespace Ltd.NA.Emlak.Domain
         {
             return new House
             {
-                id = id,
-                name = name,
-                description = description
+                Id = id,
+                Name = name,
+                Description = description
             };
+        }
+
+        /// <summary>
+        /// Modify the Name and the Description of an house
+        /// </summary>
+        /// <param name="name">The new Name of the House</param>
+        public void ModifyName(string name)
+        {
+            if (this.Name != name)
+            {
+                this.Name = name;                
+            }
         }
 
         /// <summary>
@@ -96,7 +103,7 @@ namespace Ltd.NA.Emlak.Domain
         /// <param name="description">The Description for the Category</param>
         public void AddCategory(string entry, string description)
         {
-            this.category = new Category(entry, description);
+            this.Category = new Category(entry, description);
         }
 
         /// <summary>
@@ -105,7 +112,7 @@ namespace Ltd.NA.Emlak.Domain
         /// <param name="category">The new category</param>
         public void ChangeCategory(Category category)
         {
-            this.category = category;
+            this.Category = category;
         }
 
         public void AddAddress(string address1,
@@ -114,12 +121,12 @@ namespace Ltd.NA.Emlak.Domain
             string number,
             string zipCode)
         {
-            this.address = new Address(address1, city, country, number, zipCode);
+            this.Address = new Address(address1, city, country, number, zipCode);
         }
 
         public void ChangeAddress(Address address)
         {
-            this.address = address;
+            this.Address = address;
         }
     }
 }

@@ -8,31 +8,34 @@ namespace Ltd.NA.Emlak.Domain
 {
     public class Category
     {
-        private Guid id;
-        private string entry;
-        private string description;
-
         public Guid Id
         {
-            get { return this.id; }
+            get;
+            private set;
         }
 
         public string Entry
         {
-            get { return this.entry; }
+            get;
+            private set;
         }
 
         public string Description
         {
-            get { return this.description; }
+            get;
+            private set;
         }
 
         internal Category(string entry, string description)
         {
-            this.id = Guid.NewGuid();
-            this.entry = entry;
-            this.description = description;
+            this.Id = Guid.NewGuid();
+            this.Entry = entry;
+            this.Description = description;
         }
-        
+
+        protected Category()
+        {
+            
+        }
     }
 }

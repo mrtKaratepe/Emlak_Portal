@@ -18,6 +18,44 @@ namespace Ltd.NA.Emlak.Data.Tests
                 {
                     context.Houses.Remove(house);
                 }
+                var categories = context.Set<Category>().ToList();
+                foreach (var category in categories)
+                {
+                    context.Set<Category>().Remove(category);
+                }
+                var addresses = context.Set<Address>().ToList();
+                foreach (var address in addresses)
+                {
+                    context.Set<Address>().Remove(address);
+                }
+                
+                
+                context.SaveChanges();
+            }
+        }
+
+        [TestCleanup]
+        public void Cleanup()
+        {
+            using (DatabaseContext context = new DatabaseContext())
+            {
+                var houses = context.Houses.ToList();
+                foreach (var house in houses)
+                {
+                    context.Houses.Remove(house);
+                }
+                var categories = context.Set<Category>().ToList();
+                foreach (var category in categories)
+                {
+                    context.Set<Category>().Remove(category);
+                }
+                var addresses = context.Set<Address>().ToList();
+                foreach (var address in addresses)
+                {
+                    context.Set<Address>().Remove(address);
+                }
+
+
                 context.SaveChanges();
             }
         }

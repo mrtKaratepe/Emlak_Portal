@@ -38,8 +38,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -48,6 +55,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HouseProjectionsTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Ltd.NA.Emlak.Data\Ltd.NA.Emlak.Data.csproj">
+      <Project>{c6a3f331-76db-4308-9a41-12ad34d46a44}</Project>
+      <Name>Ltd.NA.Emlak.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Ltd.NA.Emlak.Domain\Ltd.NA.Emlak.Domain.csproj">
+      <Project>{b47138c5-fe97-47d1-b328-1fb00f993322}</Project>
+      <Name>Ltd.NA.Emlak.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Ltd.NA.Emlak.Queries\Ltd.NA.Emlak.Queries.csproj">
+      <Project>{c42bdfec-94a3-4706-a216-3b407bb27aec}</Project>
+      <Name>Ltd.NA.Emlak.Queries</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

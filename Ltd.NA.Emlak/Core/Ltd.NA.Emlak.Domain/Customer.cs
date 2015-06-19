@@ -21,7 +21,7 @@ namespace Ltd.NA.Emlak.Domain
             private set;
         }
 
-        public string Rent
+        public Boolean Rent
         {
             get;
             private set;
@@ -30,9 +30,27 @@ namespace Ltd.NA.Emlak.Domain
         public House House
         {
             get;
-            private set;
+            set;
         }
 
-        
+        public Boolean CustomerIsActive
+        {
+            get { return active; }
+        }
+
+        public static Customer create(int tcNo, Boolean active, Boolean Rent)
+        {
+            return new Customer
+            {
+                TcNo = tcNo,
+                active = active,
+                Rent = Rent
+            };
+        }
+
+        public Boolean CustomerLookingFor
+        {
+            get {return Rent;}
+        }
     }
 }

@@ -24,8 +24,17 @@ namespace Ltd.NA.Emlak.Domain
         public House HouseInCharge
         {
             get;
-            private set;
+            set;
         }
 
+
+        public static Agent Create(string name, string description)
+        {
+            return new Agent
+            {
+                agentName=name,
+                Description=description
+            };
+        }
     }
 }

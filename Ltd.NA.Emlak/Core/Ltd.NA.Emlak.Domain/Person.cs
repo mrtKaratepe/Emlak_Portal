@@ -12,17 +12,18 @@ namespace Ltd.NA.Emlak.Domain
         public int Age
         {
             get;
-            private set;
+            set;
         }
         public String FirstName
         {
             get;
-            private set;
+            set;
         }
         public String LastName
         {
             get;
-            private set;
+            set;
         }
+
     }
 }

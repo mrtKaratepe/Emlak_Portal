@@ -41,4 +41,32 @@ namespace Ltd.NA.Emlak.Data.Mappings
                 .Property(x => x.Id);
         }
     }
+
+    public class PersonMap : EntityTypeConfiguration<Person>
+    {
+        public PersonMap()
+        {
+            this.ToTable("tbl_Person")
+                .Property(x => x.Id);
+        }
+    }
+
+    public class AgentMap : EntityTypeConfiguration<Agent>
+    {
+        public AgentMap()
+        {
+            this.ToTable("tbl_Agent")
+                .Property(x => x.Id);
+        }
+    }
+
+    public class CustomerMap : EntityTypeConfiguration<Customer>
+    {
+        public CustomerMap()
+        {
+            this.ToTable("tbl_Customer")
+                .Property(x => x.Id);
+        }
+    }
+
 }

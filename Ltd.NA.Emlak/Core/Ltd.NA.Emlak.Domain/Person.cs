@@ -8,6 +8,11 @@ namespace Ltd.NA.Emlak.Domain
 {
     public class Person
     {
+        public Guid Id
+        {
+            get;
+            private set;
+        }
 
         public int Age
         {

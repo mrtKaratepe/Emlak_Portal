@@ -7,13 +7,13 @@ namespace Ltd.NA.Emlak.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class HouseCategoryAddress : IMigrationMetadata
+    public sealed partial class HouseMap : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(HouseCategoryAddress));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(HouseMap));
         
         string IMigrationMetadata.Id
         {
-            get { return "201506171301187_HouseCategoryAddress"; }
+            get { return "201506191908242_HouseMap"; }
         }
         
         string IMigrationMetadata.Source

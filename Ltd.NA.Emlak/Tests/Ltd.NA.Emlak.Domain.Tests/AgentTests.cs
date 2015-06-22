@@ -24,19 +24,27 @@ namespace Ltd.NA.Emlak.Domain.Tests
         [TestMethod]
         public void Agent_Created_HasProperties()
         {
-            Assert.Inconclusive("to refactor");
+            Assert.IsNotNull(mocksAgent.FirstName);
+            Assert.IsNotNull(mocksAgent.LastName);
         }
 
         [TestMethod]
         public void Agent_Has_HouseAssociated()
         {
-            Assert.Inconclusive("to refactor");
+            House tempMocksHouse = DomainMocksFactory.CreateHouse();
+            mocksAgent.HousesInCharge.Add(tempMocksHouse);
+            Assert.IsTrue(mocksAgent.HousesInCharge.Count > 0);
         }
 
         [TestMethod]
         public void Agent_RemoveHouse_AssociationsAreRemoved()
         {
-            Assert.Inconclusive("to refactor");
+            House tempMocksHouse = DomainMocksFactory.CreateHouse();
+            mocksAgent.HousesInCharge.Add(tempMocksHouse);
+            Assert.IsTrue(mocksAgent.HousesInCharge.Count > 0);
+
+            mocksAgent.HousesInCharge.Remove(tempMocksHouse);
+            Assert.IsTrue(mocksAgent.HousesInCharge.Count == 0);
 
         }
     }

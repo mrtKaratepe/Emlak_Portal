@@ -76,13 +76,16 @@ namespace Ltd.NA.Emlak.Domain.Tests
         [TestMethod]
         public void House_Created_MustHaveACustomer()
         {
-            Assert.Inconclusive("To do");
+            Assert.IsNotNull(mockHouse.Owner);
         }
 
         [TestMethod]
         public void House_Created_IsAssociated_WithCustomerCollectionOfHouses()
         {
-            Assert.Inconclusive("To do");
+            House tempHouse = House.Create("Temp Name","Temp Description",mockHouse.Owner);
+            mockHouse.Owner.AddHouse(tempHouse);
+
+            Assert.IsTrue(mockHouse.Owner.Houses.Count > 1);
         }
 
     }

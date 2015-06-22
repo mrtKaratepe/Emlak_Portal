@@ -14,5 +14,16 @@ namespace Ltd.NA.Emlak.Queries.Messages
         public Guid Id { get; set; }
         [DataMember]
         public string Name { get; set; }
+        [DataMember]
+        public string Description { get; set; }
+    }
+
+    [DataContract]
+    public class HouseSearchResponse
+    {
+        [DataMember]
+        public IEnumerable<HouseListItem> Items { get; set; }
+        [DataMember]
+        public int TotalRecords { get; set; }
     }
 }

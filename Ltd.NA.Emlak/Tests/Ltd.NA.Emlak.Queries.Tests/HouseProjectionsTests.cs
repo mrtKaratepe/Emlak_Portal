@@ -65,25 +65,55 @@ namespace Ltd.NA.Emlak.Queries.Tests
 
 
         [TestMethod]
-        public void Projection_NoHouseAvailable_ReturnEmpty()
+        public void Query_DatabaseIsEmpty_ReturnsEmptyList()
         {
-            var result = HouseProjections.GetHouseList();
-            Assert.IsTrue(result.ToList().Count == 0);
+            var result = HouseProjections.GetHouseList(0, 10);
+            Assert.IsTrue(result.Count() == 0);
         }
 
         [TestMethod]
-        public void Projection_OneHouseAvailable_ReturnInList()
+        public void Query_FirstFive_ReturnOnlyFive()
+        {
+            CreateMockHouses();
+            var result = HouseProjections.GetHouseList(5, 0);
+
+            Assert.IsTrue(result.Count() == 5);
+            Assert.IsTrue(result.Any(x => x.Name == "1"));
+            Assert.IsFalse(result.Any(x => x.Name == "6"));
+        }
+
+        [TestMethod]
+        public void Query_SecondFive_ReturnOnlySecondFive()
+        {
+            CreateMockHouses();
+            var result = HouseProjections.GetHouseList(5, 1);
+            Assert.IsTrue(result.Count() == 5);
+            Assert.IsTrue(result.Any(x => x.Name == "6"));
+            Assert.IsFalse(result.Any(x => x.Name == "5"));
+        }
+
+        [TestMethod]
+        public void Query_All_ReturnAll()
+        {
+            CreateMockHouses();
+            var result = HouseProjections.GetHouseList(999, 0);
+            Assert.IsTrue(result.Count() == 10);
+        }
+
+
+        private void CreateMockHouses()
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                House house = DomainMocksFactory.CreateHouse();
-                context.Houses.Add(house);
+                for (int i = 0; i < 10; i++)
+                {
+                    House house = DomainMocksFactory.CreateHouse();
+                    house.ModifyName((i + 1).ToString());
+                    context.Houses.Add(house);
+                }
 
                 context.SaveChanges();
             }
-
-            var result = HouseProjections.GetHouseList();
-            Assert.IsTrue(result.ToList().Count == 1);
         }
     }
 }

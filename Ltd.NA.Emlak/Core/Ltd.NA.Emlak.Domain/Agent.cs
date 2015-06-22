@@ -9,7 +9,7 @@ namespace Ltd.NA.Emlak.Domain
     public class Agent : Person
     {
 
-        public string agentName
+        public string AgentName
         {
             get;
             private set;
@@ -21,10 +21,15 @@ namespace Ltd.NA.Emlak.Domain
             private set;
         }
 
-        public House HouseInCharge
+        public IEnumerable<House> HouseInCharge
         {
             get;
-            set;
+            private set;
+        }
+
+        public void AddHouse(string name, string description)
+        {
+            this.HouseInCharge = House.Create(Guid.NewGuid(),name,description);
         }
 
 
@@ -32,7 +37,7 @@ namespace Ltd.NA.Emlak.Domain
         {
             return new Agent
             {
-                agentName=name,
+                AgentName=name,
                 Description=description
             };
         }

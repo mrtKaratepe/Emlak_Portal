@@ -57,6 +57,11 @@ namespace Ltd.NA.Emlak.Data.Mappings
         {
             this.ToTable("tbl_Agent")
                 .Property(x => x.Id);
+            /*
+            this.HasOptional(x => x.HouseInCharge)
+                .WithMany()
+                .Map(x => x.MapKey("FK_AgentOfHousesId"));
+             */
         }
     }
 
@@ -66,6 +71,11 @@ namespace Ltd.NA.Emlak.Data.Mappings
         {
             this.ToTable("tbl_Customer")
                 .Property(x => x.Id);
+            /*
+            this.HasOptional(x => x.House)
+                .WithMany()
+                .Map(x => x.MapKey("FK_HouseOfCustomerId"));
+             * */
         }
     }
 

@@ -34,5 +34,15 @@ namespace Ltd.NA.Emlak.Domain.Tests
             Assert.IsTrue(mocksAgent.FirstName == "John");
             Assert.IsNotNull(mocksAgent.LastName);
         }
+
+        [TestMethod]
+        public void Agent_Get_A_House()
+        {
+            mocksAgent.AddHouse("Agent House Name","House Description");
+
+            Assert.IsNotNull(mocksAgent.HouseInCharge);
+            Assert.IsTrue(mocksAgent.HouseInCharge.Name == "Agent House Name");
+            Assert.IsTrue(mocksAgent.HouseInCharge.Description == "House Description");
+        }
     }
 }

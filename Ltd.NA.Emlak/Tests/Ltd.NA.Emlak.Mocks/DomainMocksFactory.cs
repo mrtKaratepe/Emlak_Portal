@@ -18,7 +18,7 @@ namespace Ltd.NA.Emlak.Mocks
             Customer customer = Customer.create(123456789, true, false);
             customer.FirstName = "John";
             customer.LastName = "Lion";
-            customer.House = House.Create(Guid.NewGuid(), "My Name", "My Description");
+            customer.AddHouse( "My Name", "My Description");
             customer.Age = 35;
             return customer;
 
@@ -29,7 +29,7 @@ namespace Ltd.NA.Emlak.Mocks
             Agent agent = Agent.Create("Uckuyular", "Uckuyular Tansas Bolge");
             agent.FirstName = "John";
             agent.LastName = "Lion";
-            agent.HouseInCharge = House.Create(Guid.NewGuid(), "My Name", "My Description");
+            agent.AddHouse("My Name", "My Description");
             return agent;
         }
     }

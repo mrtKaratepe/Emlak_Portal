@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ltd.NA.Emlak.Domain
 {
-    public class Person
+    public abstract class Person
     {
         public Guid Id
         {

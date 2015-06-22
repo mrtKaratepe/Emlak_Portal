@@ -149,8 +149,9 @@ namespace Ltd.NA.Emlak.Data.Tests
                     .Include("Category")
                     .Include("Address")
                     .FirstOrDefault();
-                Assert.IsTrue(house.Name == "Modified");
+                Assert.IsTrue(house.Name == "Beautiful House");
                 Assert.IsTrue(house.Description == "This is a beautiful house");
+                Assert.IsTrue(house.Address.Address1 == "My street");
             }
         }
     }

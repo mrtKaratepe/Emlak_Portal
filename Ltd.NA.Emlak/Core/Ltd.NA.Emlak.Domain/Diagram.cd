@@ -38,7 +38,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <HashCode>AAACAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -46,6 +46,7 @@
     <Position X="2.75" Y="4" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <InheritanceLine Type="Ltd.NA.Emlak.Domain.Person" FixedFromPoint="true">
       <Path>
@@ -54,15 +55,15 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <HashCode>AABEAAAAAAAgAAAAAAAAAAAAAAAAAEAAAABAAAAAAAA=</HashCode>
       <FileName>Agent.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="HouseInCharge" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Ltd.NA.Emlak.Domain.Customer">
     <Position X="7.75" Y="3.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <InheritanceLine Type="Ltd.NA.Emlak.Domain.Person" FixedFromPoint="true">
       <Path>
         <Point X="6.75" Y="4.585" />
@@ -71,14 +72,14 @@
     </InheritanceLine>
     <AssociationLine Name="House" Type="Ltd.NA.Emlak.Domain.House" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="7.75" Y="3.969" />
-        <Point X="7.375" Y="3.969" />
+        <Point X="7.75" Y="3.937" />
+        <Point X="7.375" Y="3.937" />
         <Point X="7.375" Y="2.062" />
         <Point X="6" Y="2.062" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAACAAAAAAAAIAIAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAEAAACAAAAQAAAJAIAAAAAA=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

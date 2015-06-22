@@ -13,7 +13,7 @@ namespace Ltd.NA.Emlak.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201506191908242_HouseMap"; }
+            get { return "201506211652160_HouseMap"; }
         }
         
         string IMigrationMetadata.Source

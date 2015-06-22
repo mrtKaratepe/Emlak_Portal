@@ -30,7 +30,12 @@ namespace Ltd.NA.Emlak.Domain
         public House House
         {
             get;
-            set;
+            private set;
+        }
+
+        public void AddHouse(string name, string description)
+        {
+            this.House = House.Create(Guid.NewGuid(), name, description);
         }
 
         public Boolean CustomerIsActive

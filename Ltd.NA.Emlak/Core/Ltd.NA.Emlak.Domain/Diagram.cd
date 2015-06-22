@@ -1,29 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Ltd.NA.Emlak.Domain.House">
-    <Position X="4.5" Y="0.75" Width="1.5" />
+    <Position X="5.75" Y="5.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
+    <AssociationLine Name="Agent" Type="Ltd.NA.Emlak.Domain.Agent" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.75" Y="5.875" />
+        <Point X="4.344" Y="5.875" />
+        <Point X="4.344" Y="4.684" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Owner" Type="Ltd.NA.Emlak.Domain.Customer" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.25" Y="5.938" />
+        <Point X="8.5" Y="5.938" />
+        <Point X="8.5" Y="4.492" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.742" Y="0.527" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAACABAAAAQgAAAAAAgAACQAAAAAAGACAAAAAAIACAA=</HashCode>
+      <HashCode>AAACABCAAAQgAACAAAkAACQAAAAAAGACAAAAAAIACAA=</HashCode>
       <FileName>House.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Category" />
       <Property Name="Address" />
+      <Property Name="Agent" />
+      <Property Name="Owner" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Ltd.NA.Emlak.Domain.Category">
-    <Position X="7.75" Y="0.5" Width="1.5" />
+  <Class Name="Ltd.NA.Emlak.Domain.Category" Collapsed="true">
+    <Position X="2.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAASAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Category.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Ltd.NA.Emlak.Domain.Address">
-    <Position X="1" Y="0.5" Width="1.5" />
+  <Class Name="Ltd.NA.Emlak.Domain.Address" Collapsed="true">
+    <Position X="8.25" Y="6.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -32,59 +51,61 @@
       <FileName>Address.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Ltd.NA.Emlak.Domain.Person">
-    <Position X="5.25" Y="4" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AAACAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>Person.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Ltd.NA.Emlak.Domain.Agent">
-    <Position X="2.75" Y="4" Width="1.5" />
+    <Position X="3.75" Y="3" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
-    <InheritanceLine Type="Ltd.NA.Emlak.Domain.Person" FixedFromPoint="true">
+    <AssociationLine Name="HousesInCharge" Type="Ltd.NA.Emlak.Domain.House" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="5.25" Y="4.798" />
-        <Point X="4.25" Y="4.798" />
+        <Point X="4.672" Y="4.684" />
+        <Point X="4.672" Y="5.125" />
+        <Point X="6.125" Y="5.125" />
+        <Point X="6.125" Y="5.5" />
       </Path>
-    </InheritanceLine>
-    <TypeIdentifier>
-      <HashCode>AABEAAAAAAAgAAAAAAAAAAAAAAAAAEAAAABAAAAAAAA=</HashCode>
-      <FileName>Agent.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Ltd.NA.Emlak.Domain.Customer">
-    <Position X="7.75" Y="3.75" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
-    <InheritanceLine Type="Ltd.NA.Emlak.Domain.Person" FixedFromPoint="true">
-      <Path>
-        <Point X="6.75" Y="4.585" />
-        <Point X="7.75" Y="4.585" />
-      </Path>
-    </InheritanceLine>
-    <AssociationLine Name="House" Type="Ltd.NA.Emlak.Domain.House" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="7.75" Y="3.937" />
-        <Point X="7.375" Y="3.937" />
-        <Point X="7.375" Y="2.062" />
-        <Point X="6" Y="2.062" />
-      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.05" Y="0.475" Height="0.182" Width="1.159" />
+      </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAEAAAAEAAACAAAAQAAAJAIAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAgAgAAAAAAAAAAIAAAAAAEAAAIBAAAAAAAA=</HashCode>
+      <FileName>Agent.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="HousesInCharge" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Ltd.NA.Emlak.Domain.Customer">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Houses" Type="Ltd.NA.Emlak.Domain.House" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.844" Y="4.492" />
+        <Point X="7.844" Y="5.125" />
+        <Point X="6.75" Y="5.125" />
+        <Point X="6.75" Y="5.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.742" Y="0.506" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAgAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAA=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="House" />
-    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Houses" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Ltd.NA.Emlak.Domain.Person">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAAAEAAAAAAAAAAAAAgAAAAAAAAAAg=</HashCode>
+      <FileName>Person.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

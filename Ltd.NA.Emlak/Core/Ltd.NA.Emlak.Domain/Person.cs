@@ -30,5 +30,25 @@ namespace Ltd.NA.Emlak.Domain
             set;
         }
 
+        public Boolean Active
+        {
+            get;
+            private set;
+        }
+
+        [Obsolete("Don't use this, it is only for EF")]
+        protected Person()
+        {
+            
+        }
+
+        public Person(string firstName, string lastName, int age)
+        {
+            this.Id = Guid.NewGuid();
+            this.Age = age;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+        }
+
     }
 }

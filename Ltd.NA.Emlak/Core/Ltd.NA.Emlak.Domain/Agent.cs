@@ -9,7 +9,7 @@ namespace Ltd.NA.Emlak.Domain
     public class Agent : Person
     {
 
-        public string AgentName
+        public string AgentCode
         {
             get;
             private set;
@@ -21,25 +21,42 @@ namespace Ltd.NA.Emlak.Domain
             private set;
         }
 
-        public IEnumerable<House> HouseInCharge
+        public IList<House> HousesInCharge
         {
             get;
             private set;
         }
 
-        public void AddHouse(string name, string description)
+        public void AddHouse(House house)
         {
-            this.HouseInCharge = House.Create(Guid.NewGuid(),name,description);
+            house.AssociateAgent(this);
+            this.HousesInCharge.Add(house);
         }
 
-
-        public static Agent Create(string name, string description)
+        public void RemoveHouse(House house)
         {
-            return new Agent
-            {
-                AgentName=name,
-                Description=description
-            };
+            house.AssociateAgent(null);
+            this.HousesInCharge.Remove(house);
+        }
+
+        public static Agent Create(string firstName, string lastName, int age, string code, string description)
+        {
+
+            return new Agent(firstName, lastName, age, code, description);
+        }
+
+        [Obsolete("Don't use this, it is only for EF")]
+        protected Agent()
+        {
+            
+        }
+
+        private Agent(string firstName, string lastName, int age, string code, string description)
+            : base(firstName, lastName, age)
+        {
+            this.HousesInCharge = new List<House>();
+            this.AgentCode = code;
+            this.Description = description;
         }
     }
 }

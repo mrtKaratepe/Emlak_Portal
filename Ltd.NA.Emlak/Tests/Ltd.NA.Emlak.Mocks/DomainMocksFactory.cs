@@ -11,25 +11,18 @@ namespace Ltd.NA.Emlak.Mocks
     {
         public static House CreateHouse()
         {
-            return House.Create(Guid.NewGuid(), "My Name", "My Description");
+            return House.Create("My Name", "My Description",CreateCustomer());
         }
 
         public static Customer CreateCustomer(){
-            Customer customer = Customer.create(123456789, true, false);
-            customer.FirstName = "John";
-            customer.LastName = "Lion";
-            customer.AddHouse( "My Name", "My Description");
-            customer.Age = 35;
+            Customer customer = Customer.create("first name","last name",99,"tax number");
             return customer;
 
         }
 
         public static Agent CreateAgent()
         {
-            Agent agent = Agent.Create("Uckuyular", "Uckuyular Tansas Bolge");
-            agent.FirstName = "John";
-            agent.LastName = "Lion";
-            agent.AddHouse("My Name", "My Description");
+            Agent agent = Agent.Create("first name","last name",99,"code", "description");
             return agent;
         }
     }

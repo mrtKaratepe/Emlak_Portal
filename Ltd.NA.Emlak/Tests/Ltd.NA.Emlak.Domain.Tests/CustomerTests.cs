@@ -15,36 +15,29 @@ namespace Ltd.NA.Emlak.Domain.Tests
             mockCustomer = DomainMocksFactory.CreateCustomer();
         }
 
+
         [TestMethod]
-        public void CustomerIsActive()
+        public void Customer_Created()
         {
-            Assert.IsTrue(mockCustomer.active);
+            Assert.IsNotNull(mockCustomer);
         }
 
         [TestMethod]
-        public void Customer_Requirement_Test_For_Sale()
+        public void Customer_Created_HasProperties()
         {
-            Assert.IsFalse(mockCustomer.CustomerLookingFor);
+            Assert.Inconclusive("to refactor");
         }
 
         [TestMethod]
-        public void Customer_Person_Informations()
+        public void Customer_HasOneHouseAssociated()
         {
-            Assert.IsTrue(mockCustomer.FirstName == "John");
-            Assert.IsTrue(mockCustomer.LastName == "Lion");
-            Assert.IsTrue(mockCustomer.Age == 35);
+            Assert.Inconclusive("to refactor");
         }
 
         [TestMethod]
-        public void Customer_Can_Get_A_House()
+        public void Customer_HasTwoHouseAssociated()
         {
-            Assert.IsNotNull(mockCustomer.House);
-        }
-
-        [TestMethod]
-        public void Customer_House_Informations()
-        {
-            Assert.IsTrue(mockCustomer.House.Name == "My Name");
+            Assert.Inconclusive("to refactor");
         }
     }
 }

@@ -59,21 +59,35 @@ namespace Ltd.NA.Emlak.Domain
             private set;
         }
 
+        public Agent Agent
+        {
+            get;
+            private set;
+        }
+
+        public Customer Owner
+        {
+            get;
+            private set;
+        }
+
         /// <summary>
         /// Create a new House object
         /// </summary>
-        /// <param name="id">The unique id</param>
         /// <param name="name">The name of the house</param>
         /// <param name="description">The description of the house</param>
         /// <returns></returns>
-        public static House Create(Guid id, string name, string description)
+        public static House Create(string name, string description, Customer owner)
         {
-            return new House
+            var house = new House
             {
-                Id = id,
+                Id = Guid.NewGuid(),
                 Name = name,
-                Description = description
+                Description = description,
+                Owner = owner
             };
+            owner.AddHouse(house);
+            return house;
         }
 
         /// <summary>
@@ -127,6 +141,11 @@ namespace Ltd.NA.Emlak.Domain
         public void ChangeAddress(Address address)
         {
             this.Address = address;
+        }
+
+        public void AssociateAgent(Agent agent)
+        {
+            this.Agent = agent;
         }
     }
 }

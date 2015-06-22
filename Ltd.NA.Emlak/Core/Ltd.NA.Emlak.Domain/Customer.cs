@@ -9,53 +9,43 @@ namespace Ltd.NA.Emlak.Domain
     public class Customer : Person
     {
 
-        public int TcNo
+        public string TaxNumber
         {
             get;
             private set;
         }
 
-        public Boolean active
+        public IList<House> Houses
         {
             get;
             private set;
         }
 
-        public Boolean Rent
+        internal void AddHouse(House house)
         {
-            get;
-            private set;
+            this.Houses.Add(house);
         }
 
-        public House House
+        public void RemoveHouse(House house)
         {
-            get;
-            private set;
+            this.Houses.Remove(house);
         }
 
-        public void AddHouse(string name, string description)
+        public static Customer create(string firstName, string lastName, int age, string taxNumber)
         {
-            this.House = House.Create(Guid.NewGuid(), name, description);
+            return new Customer(firstName, lastName, age, taxNumber);
         }
 
-        public Boolean CustomerIsActive
+        [Obsolete("Don't use this, it is only for EF")]
+        protected Customer()
         {
-            get { return active; }
+
         }
 
-        public static Customer create(int tcNo, Boolean active, Boolean Rent)
+        private Customer(string firstName, string lastName, int age, string tcNo)
+            : base(firstName, lastName, age)
         {
-            return new Customer
-            {
-                TcNo = tcNo,
-                active = active,
-                Rent = Rent
-            };
-        }
-
-        public Boolean CustomerLookingFor
-        {
-            get {return Rent;}
+            this.Houses = new List<House>();
         }
     }
 }

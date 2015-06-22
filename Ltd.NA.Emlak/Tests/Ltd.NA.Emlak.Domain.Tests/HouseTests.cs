@@ -73,5 +73,17 @@ namespace Ltd.NA.Emlak.Domain.Tests
 
         }
 
+        [TestMethod]
+        public void House_Created_MustHaveACustomer()
+        {
+            Assert.Inconclusive("To do");
+        }
+
+        [TestMethod]
+        public void House_Created_IsAssociated_WithCustomerCollectionOfHouses()
+        {
+            Assert.Inconclusive("To do");
+        }
+
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -19,11 +18,8 @@ namespace Ltd.NA.Emlak.Queries.Messages
     }
 
     [DataContract]
-    public class HouseSearchResponse
+    public class HouseDetailsItem
     {
-        [DataMember]
-        public IEnumerable<HouseListItem> Items { get; set; }
-        [DataMember]
-        public int TotalRecords { get; set; }
+        
     }
 }

@@ -100,19 +100,129 @@ namespace Ltd.NA.Emlak.Data.Tests
         [TestMethod]
         public void Agent_WithOneHouse_CanRemoveHouse()
         {
-            Assert.Inconclusive("To do");
+            using (var context = new DatabaseContext())
+            {
+                //First Add House To The Agent
+                House firstHouse = DomainMocksFactory.CreateHouse();
+                Agent mocksAgent = DomainMocksFactory.CreateAgent();
+                mocksAgent.HousesInCharge.Add(firstHouse);
+
+                context.Agents.Add(mocksAgent);
+
+                context.SaveChanges();
+            }
+
+            using (var context = new DatabaseContext())
+            {
+                Agent agent = context.Agents
+                    .Include(x => x.HousesInCharge)
+                    .FirstOrDefault();
+                
+                //Verify that we added to house to the agent.
+                Assert.IsTrue(agent.HousesInCharge.Count == 1);
+
+                //Then remove that house from agent.
+                agent.HousesInCharge.RemoveAt(0);
+                context.SaveChanges();
+            }
+
+            using (var context = new DatabaseContext())
+            {
+                Agent agent = context.Agents
+                    .Include(x => x.HousesInCharge)
+                    .FirstOrDefault();
+
+                //Verify that you removed house from agent.
+                Assert.IsTrue(agent.HousesInCharge.Count == 0);
+            }
+            
         }
 
         [TestMethod]
         public void Agent_WithTwoHouses_CanRemoveOneHouse_AndKeepTheOther()
         {
-            Assert.Inconclusive("To do");
+            using (var context = new DatabaseContext())
+            {
+                //First Add House To The Agent
+                House firstHouse = DomainMocksFactory.CreateHouse();
+                House secondHouse = DomainMocksFactory.CreateHouse();
+                Agent mocksAgent = DomainMocksFactory.CreateAgent();
+                
+                mocksAgent.HousesInCharge.Add(firstHouse);
+                mocksAgent.HousesInCharge.Add(secondHouse);
+
+                context.Agents.Add(mocksAgent);
+
+                context.SaveChanges();
+            }
+
+            using (var context = new DatabaseContext())
+            {
+                Agent agent = context.Agents
+                    .Include(x => x.HousesInCharge)
+                    .FirstOrDefault();
+
+                //Verify that we added to houses to the agent.
+                Assert.IsTrue(agent.HousesInCharge.Count == 2);
+
+                //Then remove that house from agent.
+                agent.HousesInCharge.RemoveAt(1);
+                context.SaveChanges();
+            }
+
+            using (var context = new DatabaseContext())
+            {
+                Agent agent = context.Agents
+                    .Include(x => x.HousesInCharge)
+                    .FirstOrDefault();
+
+                //Verify that you removed house from agent.
+                Assert.IsTrue(agent.HousesInCharge.Count == 1);
+            }
         }
 
         [TestMethod]
         public void Agent_IsDeleted_DoesNotDelete_Houses()
         {
-            Assert.Inconclusive("To do");
+            using (var context = new DatabaseContext())
+            {
+                Agent agent = DomainMocksFactory.CreateAgent();
+                House house = DomainMocksFactory.CreateHouse();
+
+                agent.HousesInCharge.Add(house);
+
+                context.Houses.Add(house);
+                context.Agents.Add(agent);
+
+                context.SaveChanges();
+
+            }
+
+            using (var context = new DatabaseContext())
+            {
+                Agent agent = context.Agents
+                    .Include(x => x.HousesInCharge)
+                    .FirstOrDefault();
+                //Verify that you have a proper agent object with house.
+                Assert.IsTrue(agent.HousesInCharge.Count > 0);
+
+                //Delete Agent object.
+                context.Agents.Remove(agent);
+
+                context.SaveChanges();
+            }
+
+            using (var context = new DatabaseContext())
+            {
+                House house = context.Houses.FirstOrDefault();
+                Agent agent = context.Agents
+                    .Include(x => x.HousesInCharge)
+                    .FirstOrDefault();
+
+                Assert.IsNotNull(house);
+            }
         }
+
+
     }
 }

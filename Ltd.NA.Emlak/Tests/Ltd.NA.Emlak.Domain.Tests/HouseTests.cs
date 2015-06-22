@@ -19,8 +19,8 @@ namespace Ltd.NA.Emlak.Domain.Tests
         public void House_MustHave_Name_And_Description()
         {
             Assert.IsTrue(mockHouse.Id != Guid.Empty, "The id is empty");
-            Assert.IsTrue(mockHouse.Name == "My Name");
-            Assert.IsTrue(mockHouse.Description == "My Description");
+            Assert.IsTrue(mockHouse.Name == DomainMocksFactory.HOUSE_NAME);
+            Assert.IsTrue(mockHouse.Description == DomainMocksFactory.HOUSE_DESC);
         }
 
         [TestMethod]

@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ltd.NA.Emlak.Domain;
 using System.Linq;
 using Ltd.NA.Emlak.Mocks;
+using System.Data.Entity;
 
 namespace Ltd.NA.Emlak.Data.Tests
 {
@@ -157,7 +158,42 @@ namespace Ltd.NA.Emlak.Data.Tests
         [TestMethod]
         public void House_IsDeleted_ButCustomerIsNot()
         {
-            Assert.Inconclusive("To do");
+            using (var context = new DatabaseContext())
+            {
+                House house = DomainMocksFactory.CreateHouse();
+                Customer customer = house.Owner;
+
+                context.Houses.Add(house);
+                context.Customers.Add(customer);
+
+                context.SaveChanges();
+
+            }
+
+            using (var context = new DatabaseContext())
+            {
+                House house = context.Houses
+                    .Include(x => x.Owner)
+                    .FirstOrDefault();
+
+                Assert.IsNotNull(house);
+
+                context.Houses.Remove(house);
+
+                context.SaveChanges();
+
+            }
+
+            using (var context = new DatabaseContext())
+            {
+                House house = context.Houses
+                    .Include(x => x.Owner)
+                    .FirstOrDefault();
+                Customer customer = context.Customers.FirstOrDefault();
+
+                Assert.IsNotNull(customer);
+                Assert.IsNull(house);
+            }
         }
     }
 }

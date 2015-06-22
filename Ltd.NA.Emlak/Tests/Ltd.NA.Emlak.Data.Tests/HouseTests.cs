@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ltd.NA.Emlak.Domain;
 using System.Linq;
+using Ltd.NA.Emlak.Mocks;
 
 namespace Ltd.NA.Emlak.Data.Tests
 {
@@ -65,7 +66,7 @@ namespace Ltd.NA.Emlak.Data.Tests
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                House house = House.Create(Guid.NewGuid(), "Beautiful House", "This is a beautiful house");
+                House house = DomainMocksFactory.CreateHouse();
                 context.Houses.Add(house);
 
                 context.SaveChanges();
@@ -74,8 +75,7 @@ namespace Ltd.NA.Emlak.Data.Tests
             using (DatabaseContext context = new DatabaseContext())
             {
                 House house = context.Houses.FirstOrDefault();
-                Assert.IsTrue(house.Name == "Beautiful House");
-                Assert.IsTrue(house.Description == "This is a beautiful house");
+                Assert.IsNotNull(house);
             }
         }
 
@@ -84,7 +84,7 @@ namespace Ltd.NA.Emlak.Data.Tests
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                House house = House.Create(Guid.NewGuid(), "Beautiful House", "This is a beautiful house");
+                House house = DomainMocksFactory.CreateHouse();
                 context.Houses.Add(house);
 
                 context.SaveChanges();
@@ -101,7 +101,6 @@ namespace Ltd.NA.Emlak.Data.Tests
             {
                 House house = context.Houses.FirstOrDefault();
                 Assert.IsTrue(house.Name == "Modified");
-                Assert.IsTrue(house.Description == "This is a beautiful house");
             }
         }
 
@@ -110,7 +109,7 @@ namespace Ltd.NA.Emlak.Data.Tests
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                House house = House.Create(Guid.NewGuid(), "Beautiful House", "This is a beautiful house");
+                House house = DomainMocksFactory.CreateHouse();
                 context.Houses.Add(house);
 
                 context.SaveChanges();
@@ -135,7 +134,7 @@ namespace Ltd.NA.Emlak.Data.Tests
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                House house = House.Create(Guid.NewGuid(), "Beautiful House", "This is a beautiful house");
+                House house = DomainMocksFactory.CreateHouse();
                 house.AddCategory("For Rent", "This house is for rent");
                 house.AddAddress("My street", "my city", "my country", "my number", "zip code");
                 
@@ -149,10 +148,16 @@ namespace Ltd.NA.Emlak.Data.Tests
                     .Include("Category")
                     .Include("Address")
                     .FirstOrDefault();
-                Assert.IsTrue(house.Name == "Beautiful House");
-                Assert.IsTrue(house.Description == "This is a beautiful house");
+                Assert.IsTrue(house.Name == DomainMocksFactory.HOUSE_NAME);
+                Assert.IsTrue(house.Description == DomainMocksFactory.HOUSE_DESC);
                 Assert.IsTrue(house.Address.Address1 == "My street");
             }
+        }
+
+        [TestMethod]
+        public void House_IsDeleted_ButCustomerIsNot()
+        {
+            Assert.Inconclusive("To do");
         }
     }
 }

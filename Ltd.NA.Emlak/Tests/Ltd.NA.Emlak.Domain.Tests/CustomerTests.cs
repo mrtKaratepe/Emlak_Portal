@@ -33,20 +33,19 @@ namespace Ltd.NA.Emlak.Domain.Tests
         public void Customer_HasOneHouseAssociated()
         {
             House tempHouseForCustomer = DomainMocksFactory.CreateHouse();
-            mockCustomer.Houses.Add(tempHouseForCustomer);
+            Assert.IsTrue(tempHouseForCustomer.Owner.Houses.Contains(tempHouseForCustomer));
 
-            Assert.IsTrue(mockCustomer.Houses.Count > 0);
         }
 
         [TestMethod]
         public void Customer_HasTwoHouseAssociated()
         {
-            House tempHouseForCustomer = DomainMocksFactory.CreateHouse();
-            mockCustomer.Houses.Add(tempHouseForCustomer);
-            mockCustomer.Houses.Add(tempHouseForCustomer);
+            House firstHouse = House.Create("name", "description", mockCustomer);
+            House secondHouse = House.Create("name", "description", mockCustomer);
 
-            Assert.IsTrue(mockCustomer.Houses.Count > 1);
-            
+            Assert.IsTrue(mockCustomer.Houses.Count == 2);
+            Assert.IsTrue(mockCustomer.Houses.Contains(firstHouse));
+            Assert.IsTrue(mockCustomer.Houses.Contains(secondHouse));
         }
     }
 }

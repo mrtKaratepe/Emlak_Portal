@@ -7,12 +7,14 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAACABAAAAQgAAAAAAgAACQAAAAAAGACAAAAAAIACAA=</HashCode>
+      <HashCode>AAACABCAAAQgAACAAAkAACQAAAAAAGACAAAAAAIACAA=</HashCode>
       <FileName>House.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Category" />
       <Property Name="Address" />
+      <Property Name="Agent" />
+      <Property Name="Owner" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Ltd.NA.Emlak.Domain.Category" Collapsed="true">
@@ -33,20 +35,19 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Ltd.NA.Emlak.Domain.Agent">
-    <Position X="3.75" Y="3" Width="1.5" />
+    <Position X="3.75" Y="2" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <AssociationLine Name="HousesInCharge" Type="Ltd.NA.Emlak.Domain.House" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="4.672" Y="4.684" />
-        <Point X="4.672" Y="5.125" />
-        <Point X="6.125" Y="5.125" />
-        <Point X="6.125" Y="5.5" />
+        <Point X="4.672" Y="3.684" />
+        <Point X="4.672" Y="5.812" />
+        <Point X="5.75" Y="5.812" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="0.05" Y="0.475" Height="0.182" Width="1.159" />
+        <Position X="0.475" Y="0.05" Height="0.182" Width="1.159" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -58,19 +59,18 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Ltd.NA.Emlak.Domain.Customer">
-    <Position X="7.5" Y="3" Width="1.5" />
+    <Position X="7.5" Y="2.25" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <AssociationLine Name="Houses" Type="Ltd.NA.Emlak.Domain.House" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="7.844" Y="4.492" />
-        <Point X="7.844" Y="5.125" />
-        <Point X="6.75" Y="5.125" />
-        <Point X="6.75" Y="5.5" />
+        <Point X="7.844" Y="3.742" />
+        <Point X="7.844" Y="5.812" />
+        <Point X="7.25" Y="5.812" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.742" Y="0.506" />
+        <Position X="0.506" Y="-0.742" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -81,7 +81,7 @@
       <Property Name="Houses" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Ltd.NA.Emlak.Domain.Person">
+  <Class Name="Ltd.NA.Emlak.Domain.Person" Collapsed="true">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAEAAAAAAAAAAAEAAAAAAAAAAAAAgAAAAAAAAAAg=</HashCode>

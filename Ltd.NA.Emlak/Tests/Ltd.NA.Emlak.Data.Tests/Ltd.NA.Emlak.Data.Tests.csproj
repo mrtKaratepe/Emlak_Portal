@@ -70,6 +70,10 @@
       <Project>{b47138c5-fe97-47d1-b328-1fb00f993322}</Project>
       <Name>Ltd.NA.Emlak.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ltd.NA.Emlak.Mocks\Ltd.NA.Emlak.Mocks.csproj">
+      <Project>{531e23d5-3d3d-40fc-a05c-ac1c5cc3e749}</Project>
+      <Name>Ltd.NA.Emlak.Mocks</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

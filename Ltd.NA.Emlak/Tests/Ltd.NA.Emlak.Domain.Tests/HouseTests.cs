@@ -83,7 +83,7 @@ namespace Ltd.NA.Emlak.Domain.Tests
         public void House_Created_IsAssociated_WithCustomerCollectionOfHouses()
         {
             House tempHouse = House.Create("Temp Name","Temp Description",mockHouse.Owner);
-            mockHouse.Owner.AddHouse(tempHouse);
+            //mockHouse.Owner.AddHouse(tempHouse);
 
             Assert.IsTrue(mockHouse.Owner.Houses.Count > 1);
         }

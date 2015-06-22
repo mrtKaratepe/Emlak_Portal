@@ -20,63 +20,13 @@ namespace Ltd.NA.Emlak.Data.Mappings
             this.HasOptional(x => x.Address)
                 .WithMany()
                 .Map(x => x.MapKey("FK_AddressId"));
+            this.HasRequired(x => x.Owner)
+                .WithMany(x => x.Houses)
+                .Map(x => x.MapKey("FK_OwnerId"));
+            this.HasOptional(x => x.Agent)
+                .WithMany(x => x.HousesInCharge)
+                .Map(x => x.MapKey("FK_AgentId"));
             this.Ignore(x => x.IsValid);
         }
     }
-
-    public class CategoryMap : EntityTypeConfiguration<Category>
-    {
-        public CategoryMap()
-        {
-            this.ToTable("tbl_Categories")
-                .Property(x => x.Id);
-        }
-    }
-
-    public class AddressMap : EntityTypeConfiguration<Address>
-    {
-        public AddressMap()
-        {
-            this.ToTable("tbl_Address")
-                .Property(x => x.Id);
-        }
-    }
-
-    public class PersonMap : EntityTypeConfiguration<Person>
-    {
-        public PersonMap()
-        {
-            this.ToTable("tbl_Person")
-                .Property(x => x.Id);
-        }
-    }
-
-    public class AgentMap : EntityTypeConfiguration<Agent>
-    {
-        public AgentMap()
-        {
-            this.ToTable("tbl_Agent")
-                .Property(x => x.Id);
-            /*
-            this.HasOptional(x => x.HouseInCharge)
-                .WithMany()
-                .Map(x => x.MapKey("FK_AgentOfHousesId"));
-             */
-        }
-    }
-
-    public class CustomerMap : EntityTypeConfiguration<Customer>
-    {
-        public CustomerMap()
-        {
-            this.ToTable("tbl_Customer")
-                .Property(x => x.Id);
-            /*
-            this.HasOptional(x => x.House)
-                .WithMany()
-                .Map(x => x.MapKey("FK_HouseOfCustomerId"));
-             * */
-        }
-    }
-
 }

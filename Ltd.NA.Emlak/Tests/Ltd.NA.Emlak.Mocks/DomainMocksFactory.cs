@@ -9,9 +9,12 @@ namespace Ltd.NA.Emlak.Mocks
 {
     public class DomainMocksFactory
     {
+        public const string HOUSE_NAME = "My house";
+        public const string HOUSE_DESC = "My Description";
+
         public static House CreateHouse()
         {
-            return House.Create("My Name", "My Description",CreateCustomer());
+            return House.Create(HOUSE_NAME, HOUSE_DESC,CreateCustomer());
         }
 
         public static Customer CreateCustomer(){

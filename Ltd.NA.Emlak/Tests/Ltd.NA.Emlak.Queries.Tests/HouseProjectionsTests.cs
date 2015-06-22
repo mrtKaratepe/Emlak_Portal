@@ -4,6 +4,7 @@ using Ltd.NA.Emlak.Queries.Projections;
 using System.Linq;
 using Ltd.NA.Emlak.Data;
 using Ltd.NA.Emlak.Domain;
+using Ltd.NA.Emlak.Mocks;
 
 namespace Ltd.NA.Emlak.Queries.Tests
 {
@@ -75,7 +76,7 @@ namespace Ltd.NA.Emlak.Queries.Tests
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                House house = House.Create(Guid.NewGuid(), "Beautiful House", "This is a beautiful house");
+                House house = DomainMocksFactory.CreateHouse();
                 context.Houses.Add(house);
 
                 context.SaveChanges();

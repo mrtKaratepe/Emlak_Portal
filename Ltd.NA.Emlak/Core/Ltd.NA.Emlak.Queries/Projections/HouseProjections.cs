@@ -19,10 +19,11 @@ namespace Ltd.NA.Emlak.Queries.Projections
             }
         }
 
-        public static IEnumerable<HouseListItem> GetHouseList(int top, int skip)
+        public static HouseSearchResponse GetHouseList(int top, int skip)
         {
             using (DatabaseContext context = new DatabaseContext())
             {
+                HouseSearchResponse houseSearchResponse = new HouseSearchResponse();
 #if DEBUG
                 context.Database.Log = delegate(string s)
                 {
@@ -40,8 +41,39 @@ namespace Ltd.NA.Emlak.Queries.Projections
                         Name = x.Name,
                         Description = x.Description
                     });
-                return result.ToList();
+                houseSearchResponse.Items = result.ToList();
+                houseSearchResponse.TotalRecords = result.ToList().Count();
+                return houseSearchResponse;
             }        
+        }
+
+        public static IEnumerable<HouseDetailsItem> GetHouseDetailsList(int top, int skip)
+        {
+            using (DatabaseContext context = new DatabaseContext())
+            {
+#if DEBUG
+                context.Database.Log = delegate(string s)
+                {
+                    Debug.WriteLine(s);
+                };
+
+#endif
+                var result = context.Houses
+                    .OrderBy(x => x.Name)
+                    .Skip(skip)
+                    .Take(top)
+                    .Select(x => new HouseDetailsItem
+                    {
+                        Id = x.Id,
+                        Name = x.Name,
+                        Description = x.Description,
+                        Address = x.Address,
+                        Category = x.Category,
+                        Agent = x.Agent,
+                        Owner = x.Owner
+                    });
+                return result.ToList();
+            }
         }
     }
 }

@@ -50,8 +50,13 @@ namespace Ltd.NA.Emlak.Queries.Projections
                     .Select(x => new HouseListItem
                     {
                         Id = x.Id,
-                        Name = x.Name,
-                        Description = x.Description
+                        Code = x.Code,
+                        Price = x.Price,
+                        Address = x.Address.Address1 
+                        + " " + x.Address.Address2
+                        +" " + x.Address.City
+                        + " " + x.Address.Country
+                        + " " + x.Address.Province
                     });
                 houseSearchResponse.Items = items.ToList();
                 houseSearchResponse.TotalRecords = totalRows;
@@ -79,10 +84,17 @@ namespace Ltd.NA.Emlak.Queries.Projections
                         Id = x.Id,
                         Name = x.Name,
                         Description = x.Description,
-                        Address = x.Address,
+                        Address1 = x.Address.Address1,
+                        Address2 = x.Address.Address2,
+                        Province = x.Address.Province,
+                        ZipCode = x.Address.ZipCode,
+                        country = x.Address.Country,
                         Category = x.Category,
-                        Agent = x.Agent,
-                        Owner = x.Owner
+                        AgentCode = x.Agent.AgentCode,
+                        AgentDescription = x.Agent.Description,
+                        HousesInCharge = x.Agent.HousesInCharge,
+                        TaxNumber = x.Owner.TaxNumber,
+                        Houses = x.Owner.Houses
                     });
                 return result.ToList();
             }

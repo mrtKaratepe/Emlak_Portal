@@ -1,5 +1,6 @@
 ﻿using Ltd.NA.Emlak.Domain;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -13,9 +14,11 @@ namespace Ltd.NA.Emlak.Queries.Messages
         [DataMember]
         public Guid Id { get; set; }
         [DataMember]
-        public string Name { get; set; }
+        public string Code { get; set; }
         [DataMember]
-        public string Description { get; set; }
+        public string Address { get; set; }
+        [DataMember]
+        public double Price { get; set; }
 
     }
 
@@ -31,10 +34,26 @@ namespace Ltd.NA.Emlak.Queries.Messages
         [DataMember]
         public Category Category { get; set; }
         [DataMember]
-        public Address Address { get; set; }
+        public string Address1 { get; set; }
         [DataMember]
-        public Customer Owner { get; set; }
+        public string Address2 { get; set; }
         [DataMember]
-        public Agent Agent { get; set; }
+        public string city { get; set; }
+        [DataMember]
+        public string country { get; set; }
+        [DataMember]
+        public string Province { get; set; }
+        [DataMember]
+        public string ZipCode { get; set; }
+        [DataMember]
+        public string TaxNumber { get; set; }
+        [DataMember]
+        public IList<House> Houses { get; set; }
+        [DataMember]
+        public string AgentCode{ get; set; }
+        [DataMember]
+        public string AgentDescription{ get; set; }
+        [DataMember]
+        public IList<House> HousesInCharge { get; set; }
     }
 }

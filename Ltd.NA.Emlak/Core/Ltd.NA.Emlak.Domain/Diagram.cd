@@ -4,7 +4,6 @@
     <Position X="5.75" Y="5.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAACABCAAAQgAACAAAkAACQAAAAAAGACAAAAAAIACAA=</HashCode>
@@ -17,14 +16,14 @@
       <Property Name="Owner" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Ltd.NA.Emlak.Domain.Category" Collapsed="true">
+  <Class Name="Ltd.NA.Emlak.Domain.Category">
     <Position X="2.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAASAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Category.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Ltd.NA.Emlak.Domain.Address" Collapsed="true">
+  <Class Name="Ltd.NA.Emlak.Domain.Address">
     <Position X="8.25" Y="6.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
@@ -38,13 +37,12 @@
     <Position X="3.75" Y="2" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <AssociationLine Name="HousesInCharge" Type="Ltd.NA.Emlak.Domain.House" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="4.672" Y="3.684" />
-        <Point X="4.672" Y="5.812" />
-        <Point X="5.75" Y="5.812" />
+        <Point X="4.672" Y="4.453" />
+        <Point X="4.672" Y="6.059" />
+        <Point X="5.75" Y="6.059" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
         <Position X="0.475" Y="0.05" Height="0.182" Width="1.159" />
@@ -60,14 +58,11 @@
   </Class>
   <Class Name="Ltd.NA.Emlak.Domain.Customer">
     <Position X="7.5" Y="2.25" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
     <AssociationLine Name="Houses" Type="Ltd.NA.Emlak.Domain.House" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="7.844" Y="3.742" />
-        <Point X="7.844" Y="5.812" />
-        <Point X="7.25" Y="5.812" />
+        <Point X="7.844" Y="4.511" />
+        <Point X="7.844" Y="6.059" />
+        <Point X="7.25" Y="6.059" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.506" Y="-0.742" />

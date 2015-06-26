@@ -18,6 +18,17 @@ namespace Ltd.NA.Emlak.Domain
         {
             get; private set; }
 
+        public string Code
+        {
+            get;
+            private set;
+        }
+
+        public double Price
+        {
+            get;
+            private set;
+        }
         /// <summary>
         /// The Name that identify the House
         /// </summary>

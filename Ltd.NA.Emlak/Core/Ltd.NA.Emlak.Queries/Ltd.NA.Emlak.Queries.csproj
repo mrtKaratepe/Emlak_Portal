@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Messages\HouseListItem.cs" />
+    <Compile Include="Messages\HouseSearchRequest.cs" />
     <Compile Include="Messages\HouseSearchResponse.cs" />
     <Compile Include="Projections\HouseProjections.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

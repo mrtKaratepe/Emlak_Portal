@@ -8,6 +8,7 @@ namespace Ltd.NA.Emlak.Queries.Messages
     {
         [DataMember]
         public IEnumerable<HouseListItem> Items { get; set; }
+            
         [DataMember]
         public int TotalRecords { get; set; }
     }

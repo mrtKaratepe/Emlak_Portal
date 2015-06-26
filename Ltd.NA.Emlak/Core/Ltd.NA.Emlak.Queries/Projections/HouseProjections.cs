@@ -19,7 +19,7 @@ namespace Ltd.NA.Emlak.Queries.Projections
             }
         }
 
-        public static HouseSearchResponse GetHouseList(int top, int skip)
+        public static HouseSearchResponse GetHouseList(HouseSearchRequest filter)
         {
             using (DatabaseContext context = new DatabaseContext())
             {
@@ -31,18 +31,30 @@ namespace Ltd.NA.Emlak.Queries.Projections
                 };
 
 #endif
-                var result = context.Houses
+                // #01 get IQueryable with filter applied, not paging yet
+                var result = context.Houses;
+                if (!string.IsNullOrEmpty(filter.City))
+                {
+                    result.Where(x => x.Address.City.Contains(filter.City));
+                }
+
+                // #02 get total count with filter applied
+                var totalRows = result.Count();
+
+                // #03 get record using paging
+
+                var items = result
                     .OrderBy(x => x.Name)
-                    .Skip(skip)
-                    .Take(top)
+                    .Skip(filter.Skip)
+                    .Take(filter.Take)
                     .Select(x => new HouseListItem
                     {
                         Id = x.Id,
                         Name = x.Name,
                         Description = x.Description
                     });
-                houseSearchResponse.Items = result.ToList();
-                houseSearchResponse.TotalRecords = result.ToList().Count();
+                houseSearchResponse.Items = items.ToList();
+                houseSearchResponse.TotalRecords = totalRows;
                 return houseSearchResponse;
             }        
         }

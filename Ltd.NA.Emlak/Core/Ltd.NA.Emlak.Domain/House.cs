@@ -29,6 +29,11 @@ namespace Ltd.NA.Emlak.Domain
             get;
             private set;
         }
+        public Boolean Rent
+        {
+            get;
+            private set;
+        }
         /// <summary>
         /// The Name that identify the House
         /// </summary>

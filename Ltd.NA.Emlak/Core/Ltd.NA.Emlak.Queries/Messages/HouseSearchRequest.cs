@@ -14,6 +14,21 @@ namespace Ltd.NA.Emlak.Queries.Messages
         public string City { get; set; }
 
         [DataMember]
+        public string Street { get; set; }
+
+        [DataMember]
+        public string Address { get; set; }
+        
+        [DataMember]
+        public string ZipCode { get; set; }
+        
+        [DataMember]
+        public Boolean TypeRent { get; set; }
+
+        [DataMember]
+        public int Price { get; set; }
+
+        [DataMember]
         public int Take { get; set; }
 
         [DataMember]

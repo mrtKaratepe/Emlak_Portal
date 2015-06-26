@@ -3,7 +3,7 @@ using System.Web.Http;
 
 namespace Ltd.NA.Emlak.Apis.Controllers
 {
-    public class HousesController : ApiController
+    public class ValuesController : ApiController
     {
         // GET api/values
         public IHttpActionResult Get(int top, int skip)

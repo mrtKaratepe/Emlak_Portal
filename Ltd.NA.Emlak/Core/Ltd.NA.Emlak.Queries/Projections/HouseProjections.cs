@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
 namespace Ltd.NA.Emlak.Queries.Projections
@@ -35,9 +36,28 @@ namespace Ltd.NA.Emlak.Queries.Projections
                 var result = context.Houses;
                 if (!string.IsNullOrEmpty(filter.City))
                 {
-                    result.Where(x => x.Address.City.Contains(filter.City));
+                    result.Where(x => x.Address.City.Contains(filter.City)).Where(x => x.Rent.Equals(filter.TypeRent));
                 }
 
+                if (!string.IsNullOrEmpty(filter.Street))
+                {
+                    result.Where(x => x.Address.Address2.Contains(filter.Street)).Where(x => x.Rent.Equals(filter.TypeRent));
+                }
+
+                if (!string.IsNullOrEmpty(filter.Address))
+                {
+                    result.Where(x => x.Address.Address1.Contains(filter.Address)).Where(x => x.Rent.Equals(filter.TypeRent));
+                }
+
+                if (!string.IsNullOrEmpty(filter.ZipCode))
+                {
+                    result.Where(x => x.Address.ZipCode.Contains(filter.ZipCode)).Where(x => x.Rent.Equals(filter.TypeRent));
+                }
+
+                if (!(filter.Price < 0))
+                {
+                    result.Where(x => x.Price.Equals(filter.Price)).Where(x => x.Rent.Equals(filter.TypeRent));
+                }
                 // #02 get total count with filter applied
                 var totalRows = result.Count();
 

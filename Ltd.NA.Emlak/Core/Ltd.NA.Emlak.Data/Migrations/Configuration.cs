@@ -9,7 +9,7 @@ namespace Ltd.NA.Emlak.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Ltd.NA.Emlak.Data.DatabaseContext context)

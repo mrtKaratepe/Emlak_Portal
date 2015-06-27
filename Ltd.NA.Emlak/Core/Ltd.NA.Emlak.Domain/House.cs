@@ -118,6 +118,11 @@ namespace Ltd.NA.Emlak.Domain
             }
         }
 
+        public void ModifyCode(string code)
+        {
+            this.Code = code;
+        }
+
         /// <summary>
         /// Protected constructor, developer cannot use it but Entity Framework can
         /// </summary>

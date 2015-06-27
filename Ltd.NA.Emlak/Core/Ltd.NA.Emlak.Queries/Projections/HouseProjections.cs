@@ -64,7 +64,7 @@ namespace Ltd.NA.Emlak.Queries.Projections
                 // #03 get record using paging
 
                 var items = result
-                    .OrderBy(x => x.Name)
+                    .OrderBy(x => x.Code)
                     .Skip(filter.Skip)
                     .Take(filter.Take)
                     .Select(x => new HouseListItem
@@ -108,13 +108,22 @@ namespace Ltd.NA.Emlak.Queries.Projections
                         Address2 = x.Address.Address2,
                         Province = x.Address.Province,
                         ZipCode = x.Address.ZipCode,
-                        country = x.Address.Country,
+                        Country = x.Address.Country,
+                        Number = x.Address.Number,
+                        City = x.Address.City,
                         Category = x.Category,
                         AgentCode = x.Agent.AgentCode,
                         AgentDescription = x.Agent.Description,
                         HousesInCharge = x.Agent.HousesInCharge,
-                        TaxNumber = x.Owner.TaxNumber,
-                        Houses = x.Owner.Houses
+                        Houses = x.Owner.Houses,
+                        CatDescription=x.Category.Description,
+                        Entry = x.Category.Entry,
+                        OwnerFirstName=x.Owner.FirstName,
+                        OwnerLastName=x.Owner.LastName,
+                        OwnerAge=x.Owner.Age,
+                        AgentFirstName = x.Agent.FirstName,
+                        AgentLastName = x.Agent.LastName,
+                        AgentAge = x.Agent.Age
                     });
                 return result.ToList();
             }

@@ -7,13 +7,13 @@ namespace Ltd.NA.Emlak.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddBlogUrl : IMigrationMetadata
+    public sealed partial class EmlakMigration_v20 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddBlogUrl));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(EmlakMigration_v20));
         
         string IMigrationMetadata.Id
         {
-            get { return "201506211653140_AddBlogUrl"; }
+            get { return "201506271934407_EmlakMigration_v2.0"; }
         }
         
         string IMigrationMetadata.Source

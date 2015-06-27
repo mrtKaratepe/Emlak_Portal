@@ -38,15 +38,15 @@ namespace Ltd.NA.Emlak.Queries.Messages
         [DataMember]
         public string Address2 { get; set; }
         [DataMember]
-        public string city { get; set; }
+        public string City { get; set; }
         [DataMember]
-        public string country { get; set; }
+        public string Country { get; set; }
         [DataMember]
         public string Province { get; set; }
         [DataMember]
         public string ZipCode { get; set; }
         [DataMember]
-        public string TaxNumber { get; set; }
+        public string Number { get; set; }
         [DataMember]
         public IList<House> Houses { get; set; }
         [DataMember]
@@ -55,5 +55,21 @@ namespace Ltd.NA.Emlak.Queries.Messages
         public string AgentDescription{ get; set; }
         [DataMember]
         public IList<House> HousesInCharge { get; set; }
+        [DataMember]
+        public string CatDescription { get; set; }
+        [DataMember]
+        public string Entry { get; set; }
+        [DataMember]
+        public string AgentFirstName { get; set; }
+        [DataMember]
+        public string AgentLastName { get; set; }
+        [DataMember]
+        public int AgentAge { get; set; }
+        [DataMember]
+        public string OwnerFirstName { get; set; }
+        [DataMember]
+        public string OwnerLastName { get; set; }
+        [DataMember]
+        public int OwnerAge { get; set; }
     }
 }

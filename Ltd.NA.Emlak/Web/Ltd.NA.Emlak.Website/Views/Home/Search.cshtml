@@ -3,65 +3,119 @@
     ViewBag.Title = "Search Page";
 }
 
-
+<div id="Search-Page" class="Search-Page">
     <div class="row" style="margin-top:30px;">
         <div class="col-xs-12 col-sm-4 col-md-4">
 
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <label for="inputStreet" class="col-sm-2 control-label">Street</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputStreet" placeholder="Street">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress" class="col-sm-2 control-label">Address</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Address">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputCity" class="col-sm-2 control-label">City</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputCity" placeholder="City">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputZipCode" class="col-sm-2 control-label">Zip Code</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputZipCode" placeholder="Zip Code">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputType1" class="col-sm-2 control-label">Type</label>
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <div class="radio-inline">
-                            <label>
-                                <input type="radio" name="radio1" checked="checked" id="inputType1"> Rent (Default)
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="radio1"> Sell
-                            </label>
+            <div class="Search-Box">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputStreet" class="col-sm-2 control-label">Street</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputStreet" placeholder="Street">
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="button" class="btn btn-default">Search</button>
+                    <div class="form-group">
+                        <label for="inputAddress" class="col-sm-2 control-label">Address</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+                        </div>
                     </div>
-                </div>
-            </form>
-
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-8">
-            <div class="list-group">
-                <img src="..." alt="..." class="img-thumbnail">
-                <h4 class="list-group-item-heading">List group item heading</h4>
-                <p class="list-group-item-text">Item goes here...</p>
+                    <div class="form-group">
+                        <label for="inputCity" class="col-sm-2 control-label">City</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputCity" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputZipCode" class="col-sm-2 control-label">Zip Code</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputZipCode" placeholder="Zip Code">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputType1" class="col-sm-2 control-label">Type</label>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="radio-inline">
+                                <label>
+                                    <input type="radio" name="radio1" checked="checked" id="inputType1"> Rent (Default)
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio1"> Sell
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="button" class="btn btn-default">Search</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
 
+        <div class="col-xs-12 col-sm-6 col-md-8" >
+
+            <div class="progress" ng-hide="true">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                    Loading (60%)
+                </div>
+            </div>
+
+            <div class="Search-Results" ng-hide="false">
+                <div class="list-group">
+                    <div class="Result-Item">
+                        <div class="Result-img-thumbnail"><img src="..." alt="..." class="img-thumbnail"></div>
+                        <div class="Result-List-Details">
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Item goes here...</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="Result-Item">
+                        <div class="Result-img-thumbnail"><img src="..." alt="..." class="img-thumbnail"></div>
+                        <div class="Result-List-Details">
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Item goes here...</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="Result-Item">
+                        <div class="Result-img-thumbnail"><img src="..." alt="..." class="img-thumbnail"></div>
+                        <div class="Result-List-Details">
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Item goes here...</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="pagination-navbar">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</div>

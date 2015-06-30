@@ -1,0 +1,38 @@
+
+/*==================Search Results Part====================*/
+.Result-img-thumbnail {
+    float:left;
+
+}
+
+.Result-List-Details {
+    float:right;
+}
+
+.Search-Page {
+
+}
+
+.clear {
+    clear:both;
+}
+
+.Result-Item {
+    clear:both;
+    padding-right:470px;
+    margin:15px;
+}
+
+.clear {
+    clear:both;
+}
+
+.Search-Results {
+    border-style:dotted;
+}
+
+.pagination-navbar{
+    position:center;
+    margin-left:auto;
+    margin-right:auto;
+}

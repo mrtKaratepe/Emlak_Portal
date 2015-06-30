@@ -19,7 +19,7 @@
 
 .Result-Item {
     clear:both;
-    padding-right:470px;
+    padding-right:490px;
     margin:15px;
 }
 
@@ -33,6 +33,14 @@
 
 .pagination-navbar{
     position:center;
-    margin-left:auto;
+    margin-left:250px;
     margin-right:auto;
+}
+
+.Header_4{
+    float:left;
+}
+
+.Paragraph_1{
+    float:right;
 }

@@ -29,7 +29,7 @@ namespace Ltd.NA.Emlak.Website.Controllers
 
         public ActionResult Search()
         {
-            ViewBag.Message = "Search Application";
+            ViewBag.Message = "Search Page";
 
             return View();
         }

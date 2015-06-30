@@ -26,5 +26,12 @@ namespace Ltd.NA.Emlak.Website.Controllers
 
             return View();
         }
+
+        public ActionResult Search()
+        {
+            ViewBag.Message = "Search Application";
+
+            return View();
+        }
     }
 }

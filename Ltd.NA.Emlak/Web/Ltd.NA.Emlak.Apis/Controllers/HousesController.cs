@@ -1,4 +1,5 @@
-﻿using Ltd.NA.Emlak.Queries.Messages;
+﻿using Ltd.NA.Emlak.Apis.Models;
+using Ltd.NA.Emlak.Queries.Messages;
 using Ltd.NA.Emlak.Queries.Projections;
 using System;
 using System.Collections.Generic;
@@ -6,9 +7,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Ltd.NA.Emlak.Apis.Controllers
 {
+    [RequireHttps]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [Authorize]
+    [RoutePrefix("api/Houses")]
     public class HousesController : ApiController
     {
         [HttpPost]

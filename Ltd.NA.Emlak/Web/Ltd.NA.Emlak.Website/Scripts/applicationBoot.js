@@ -1,9 +1,10 @@
 ﻿var emlakApp = angular.module('emlakApp', []);
 var apiUrl = 'http://localhost:8652/';
 
-emlakApp.controller('searchController', function ($scope, $http,$q) {
-    $scope.loading = true;
-    $scope.ViewModelHouse=[];
+emlakApp.controller('searchController', function ($scope, $http, $q) {
+
+    $scope.loading = false;
+    $scope.houses = [];
 
     // filter view model
     $scope.filter = {
@@ -11,59 +12,50 @@ emlakApp.controller('searchController', function ($scope, $http,$q) {
         address: undefined,
         city: undefined,
         zipCode: undefined,
-        type:undefined
+        type: undefined,
+        take: 10,
+        skip: 0
     };
 
     // paging view model
     $scope.paging = {
-        totalRows: undefined,
+        totalRows: 0,
         totalPages: function () {
-            return Math.round(totalRows / recordsPerPage)
+            return new Array(Math.round(this.totalRows / this.recordsPerPage));
         },
-        currentPage: undefined,
-        recordsPerPage: undefined
+        currentPage: 0,
+        recordsPerPage: $scope.filter.take
     };
 
-    //Try-4
-    function gethouses() {
-        var deferred = $q.defer();
-        $http.post({
-            '/api/Houses/', 
-            $scope.filter
-        })
-            .success(function (results) {
-            $scope.ViewModelHouse = results;
+    $scope.search = function gethouses() {
+
+        $scope.loading = true;
+
+        var request = {
+            method: 'POST',
+            url: apiUrl + 'api/Houses',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: $scope.filter
+        }
+
+        $http(request)
+        .success(function (result) {
+            $scope.houses = result.Items;
+            $scope.paging.totalRows = result.TotalRecords;
             $scope.loading = false;
-            deferred.resolve(results);
-            console.log('Success');
         }).error(function (data, status, headers, config) {
-            deferred.reject('Failed getting contacts');
             $scope.loading = false;
-            console.log('An Error has occured while loading posts!');
         });
-
-        return deferred.promise;
     };
 
+    $scope.loadRows = function (page) {
+        // clean up the collection
 
-    // trigger a search
-    $scope.search = function () {
-        console.log('First You search for ' + $scope.filter.address + ' Also From filter: ' + $scope.filter.type);
-        gethouses();
-        /*
-        //Try-3
-        $http.get('~/api/Houses').success(function (data) {
-            $scope.filter = data;
-            $scope.loading = false;
-            alert('success ');
-        })
-        .error(function () {
-            $scope.error = "An Error has occured while loading posts!";
-            $scope.loading = false;
-            alert('An Error has occured while loading posts!');
-        });
-        */
+        // send a new search request with new parameters
+
+        // update the paging view model
+        console.log(page);
     };
-
-
 });

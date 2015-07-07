@@ -31,7 +31,7 @@ namespace Ltd.NA.Emlak.Domain
             this.Houses.Remove(house);
         }
 
-        public static Customer create(string firstName, string lastName, int age, string taxNumber)
+        public static Customer Create(string firstName, string lastName, int age, string taxNumber)
         {
             return new Customer(firstName, lastName, age, taxNumber);
         }

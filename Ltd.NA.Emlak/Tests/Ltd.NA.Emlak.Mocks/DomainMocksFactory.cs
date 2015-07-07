@@ -18,7 +18,7 @@ namespace Ltd.NA.Emlak.Mocks
         }
 
         public static Customer CreateCustomer(){
-            Customer customer = Customer.create("first name","last name",99,"tax number");
+            Customer customer = Customer.Create("first name","last name",99,"tax number");
             return customer;
 
         }

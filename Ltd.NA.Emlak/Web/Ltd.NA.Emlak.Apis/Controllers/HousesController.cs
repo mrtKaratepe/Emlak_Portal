@@ -11,9 +11,8 @@ using System.Web.Http.Cors;
 
 namespace Ltd.NA.Emlak.Apis.Controllers
 {
-    [RequireHttps]
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [Authorize]
+
+    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, OPTIONS")]
     [RoutePrefix("api/Houses")]
     public class HousesController : ApiController
     {

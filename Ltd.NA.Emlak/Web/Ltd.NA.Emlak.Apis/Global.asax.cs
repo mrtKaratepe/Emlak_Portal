@@ -16,6 +16,8 @@ namespace Ltd.NA.Emlak.Apis
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
+            DataConfig.Initialize();
         }
     }
 }

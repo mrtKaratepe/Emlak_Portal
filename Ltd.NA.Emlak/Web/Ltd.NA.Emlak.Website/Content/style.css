@@ -44,3 +44,15 @@
 .Paragraph_1{
     float:right;
 }
+
+/*
+a[disabled="disabled_previous"] {
+    pointer-events: none;
+
+}
+
+a[disabled="disabled_next"] {
+    pointer-events: none;
+
+}
+*/
